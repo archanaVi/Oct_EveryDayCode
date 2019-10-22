@@ -37,3 +37,10 @@ inner join stores st on st.stor_id=s.stor_id
 where t.type='business');
 
 select * from store_title_address;
+
+create table if not exists store_title_address(
+select t.title_id,t.title, t.price,st.stor_name, st.city, st.zip, st.state
+from titles as t
+inner join sales s on s.title_id=t.title_id
+inner join stores st on st.stor_id=s.stor_id
+where t.type='business');
